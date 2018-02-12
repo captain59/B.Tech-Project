@@ -10,9 +10,9 @@ if nargin>=3
 else
     learningRate = 1;
 end
-[original, ~, mseMatMSE, ssimMatMSE] = l2gradientdescent(img, itterations, 0.05*learningRate);
-[~, ~, mseMatSSIMGaussian, ssimMatSSIMGaussian] = ssimGradientDescent(img, itterations, 6*learningRate);
-[~, ~, mseMatSSIMSimple, ssimMatSSIMSimple] = ssimGradientDescentSimple(img, itterations, 10*learningRate);
+[original, ~, mseMatMSE, ssimMatMSE] = l2gradientdescent(img, itterations, 0.005*learningRate);
+[~, ~, mseMatSSIMGaussian, ssimMatSSIMGaussian] = ssimGradientDescent(img, itterations, 5*learningRate);
+[~, ~, mseMatSSIMSimple, ssimMatSSIMSimple] = ssimGradientDescentSimple(img, itterations, 8*learningRate);
 %Saving Noisy Image
 imwrite(uint8(original), 'Original_Noisy.jpg');
 % plotting

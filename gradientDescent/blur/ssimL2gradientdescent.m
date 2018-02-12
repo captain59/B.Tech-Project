@@ -1,13 +1,13 @@
-function [reconstructed, original, mseMat, ssimMat] = l2gradientdescent(A, varargin)
+function [reconstructed, original, mseMat, ssimMat] = ssimL2gradientdescent(A, varargin)
 [~, ~, channels] = size(A);
 if channels>1
     A = rgb2gray(A);
 end
 A = double(A);
-sigma = 5;
+sigma = 1.5;
 s = 2*ceil(3*sigma)+1;
-
-Y = A + sigma*randn(size(A));
+G = fspecial('gaussian', [s s], sigma);
+Y = conv2(A, G,'same');
 if nargin>=2
     itterations = varargin{1};
 else
@@ -18,31 +18,31 @@ if nargin>=3
 else
     learningParameter = 0.01;
 end
-
 X = 100*ones(size(Y));
 
 disp(['Initial MSE: ', num2str(mse(A, X))]);
-mseValMax = mse(A, X);
+mseValMax = mse(Y, X);
 mseMat = mseValMax;
-ssimMat = ssim(A, X);
+ssimMat = ssim(Y, X);
 bestImg = X;
 for i=1:itterations
-    derivative = L2Derivative(Y, X);
+    derivative = 0.5*L2Derivative(Y, X, G) + 0.5*conv2(SSIMDerivative(Y, X), G, 'same');
     X = X - learningParameter*derivative;
     mseVal = mse(A, X);
+    ssimVal = ssim(A, X);
     ssimMat = [ssimMat ssim(A, X)];
     mseMat = [mseMat mseVal];
     if mseVal < mseValMax
         mseValMax = mseVal;
         bestImg = X;
     end
-    disp(['Itteration: ', num2str(i),' MSE: ', num2str(mseVal)]);
+    disp(['Itteration: ', num2str(i),' MSE: ', num2str(mseVal), ' SSIM: ', num2str(ssimVal)]);
 end
 reconstructed = bestImg;
 original = Y;
-imwrite(uint8(reconstructed), 'MSE_reconstruction.jpg');
+imwrite(uint8(reconstructed), 'ssimL2Rec.jpg');
 end
 
-function [S] = L2Derivative(Y, X)
-S = -2.0*(Y - X);
+function [S] = L2Derivative(Y, X, G)
+S = -2.0*conv2((Y - conv2(X, G,'same')), G,'same');
 end

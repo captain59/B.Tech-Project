@@ -11,5 +11,5 @@ title(titleName);
 xlabel('Itterations');
 ylabel(YLabel);
 legend('MSE', 'SSIM Gaussian', 'SSIM without Gaussian');
-saveas(fig, [titleName,'png']);
+saveas(fig, titleName,'png');
 end

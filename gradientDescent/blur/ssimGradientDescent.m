@@ -23,16 +23,16 @@ end
 X = 100*ones(size(Y));
 ssimValMax = -1;
 bestImg = X;
-disp(['Initial SSIM: ', num2str(ssim(Y, X))]);
-mseMat = mse(Y, X);
-ssimMat = ssim(Y, X);
+disp(['Initial SSIM: ', num2str(ssim(A, X))]);
+mseMat = mse(A, X);
+ssimMat = ssim(A, X);
 for i=1:itterations
     derivative = ssimDerivativeGaussian(Y, conv2(X, G,'same'));
     error = learningParameter*conv2(derivative, G,'same');
     X = X + error;
-    ssimVal = ssim(Y, X);
+    ssimVal = ssim(A, X);
     ssimMat = [ssimMat ssimVal];
-    mseMat = [mseMat mse(Y, X)];
+    mseMat = [mseMat mse(A, X)];
     if ssimVal > ssimValMax
         ssimValMax = ssimVal;
         bestImg = X;

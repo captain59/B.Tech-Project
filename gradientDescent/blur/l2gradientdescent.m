@@ -21,14 +21,14 @@ end
 X = 100*ones(size(Y));
 
 disp(['Initial MSE: ', num2str(mse(A, X))]);
-mseValMax = mse(Y, X);
+mseValMax = mse(A, X);
 mseMat = mseValMax;
-ssimMat = ssim(Y, X);
+ssimMat = ssim(A, X);
 bestImg = X;
 for i=1:itterations
     derivative = L2Derivative(Y, X, G);
     X = X - learningParameter*derivative;
-    mseVal = mse(Y, X);
+    mseVal = mse(A, X);
     ssimMat = [ssimMat ssim(A, X)];
     mseMat = [mseMat mseVal];
     if mseVal < mseValMax

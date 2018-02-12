@@ -22,12 +22,12 @@ end
 X = 100*ones(size(Y));
 ssimValMax = -1;
 bestImg = X;
-disp(['Initial SSIM: ', num2str(ssim(Y, X))]);
-mseMat = mse(Y, X);
-ssimMat = ssim(Y, X);
+disp(['Initial SSIM: ', num2str(ssim(A, X))]);
+mseMat = mse(A, X);
+ssimMat = ssim(A, X);
 for i=1:itterations
     derivative = learningParameter*SSIMDerivative(Y, X);
-    X = X + derivative;
+    X = X - derivative;
     ssimVal = ssim(A, X);
     ssimMat = [ssimMat ssimVal];
     mseMat = [mseMat mse(A, X)];
