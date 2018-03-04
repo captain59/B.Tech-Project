@@ -1,0 +1,39 @@
+%%Depth map text inpainting+gradient descent+gmrf prior
+% from ground truth disparity value
+%12/4/17 Sukla
+clc; clear all;  close all; 
+tic
+%%
+X=double(rgb2gray(imread('observation.png')));
+ Y1_org = load('masked_adirondack');
+ Y1=Y1_org.D;
+  [rows,cols]=size(Y1);
+  Xint=zeros(size(Y1));
+lamda=5;  grdnt_step=0.05;  grdnt_iter=500;
+
+    for iter = 1:grdnt_iter
+      str = strcat('D:\Depth_Inpainting\GMRF\result\iter',...
+      num2str(iter),'.png');
+      imwrite(uint8(255*(Xint/max(Xint(:)))),str)
+                   
+                    prior=prior_gmrf(Xint);
+                    
+                    O_est=mask(Y1)/255;           %O     
+                    O_est = imcomplement(O_est);
+                    Y_est=O_est.*Xint;        %Ox
+                    Ydiff=Y1-Y_est;           %y-Ox
+                    gradient= -2*O_est.*(Ydiff)+lamda*prior;
+                    
+                    Xint=Xint - grdnt_step*gradient;   
+                                    
+                    Ydiff1(iter)=sum(sum(Ydiff.^2))/(rows*cols);
+                    
+
+                    subplot(221),imshow(uint8(X),[]);title('Ground truth ');
+                    subplot(222),imshow(uint8(Y1),[]);title('Initial obs ');
+                    subplot(223),imshow(uint8(Xint),[]);title('Gmrf depth text inpaint');
+                    subplot(224),plot(Ydiff1),title('Error plot ');
+                    drawnow;
+                    iter
+    end
+             
