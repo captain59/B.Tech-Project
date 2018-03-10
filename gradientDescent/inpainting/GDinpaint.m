@@ -5,7 +5,7 @@ Y1 = double(imread(fileName));
 mask = double(imread('numMask.png')); % known portionwhite
 mask = increaseMaskSize(mask);
 Xint = double(zeros(size(Y1)));
-lamda = 10; learningRate = 0.01; itteration = 1500;
+lamda = 3.5; learningRate = 0.01; itteration = 500;
 for iter=1:itteration
     prior = prior_gmrf(Xint);
     O_est = mask/255;
