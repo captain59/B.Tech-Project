@@ -1,4 +1,0 @@
-function [out] = extractMask(img)
-[row, col] = size(img);
-
-end
