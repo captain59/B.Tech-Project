@@ -27,7 +27,7 @@ disp(['Initial SSIM: ', num2str(ssim(A, X))]);
 mseMat = mse(A, X);
 ssimMat = ssim(A, X);
 for i=1:itterations
-    derivative = SSIMDerivative(Y, conv2(X, G, 'same'));
+    derivative = -1*SSIMDerivative(Y, conv2(X, G, 'same'));
     error = learningParameter*conv2(derivative, G,'same');
     X = X - error;
     ssimVal = ssim(A, X);
