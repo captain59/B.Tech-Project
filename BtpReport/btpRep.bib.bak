@@ -1,0 +1,57 @@
+% Encoding: UTF-8
+
+@Article{1,
+  author    = {Aharon, Michal and Elad, Michael and Bruckstein, Alfred},
+  title     = {$ rm k $-SVD: An algorithm for designing overcomplete dictionaries for sparse representation},
+  journal   = {IEEE Transactions on signal processing},
+  year      = {2006},
+  volume    = {54},
+  number    = {11},
+  pages     = {4311--4322},
+  publisher = {IEEE},
+}
+
+@Article{2,
+  author  = {Rubinstein, Ron and Zibulevsky, Michael and Elad, Michael},
+  title   = {Efficient implementation of the K-SVD algorithm using batch orthogonal matching pursuit},
+  journal = {Cs Technion},
+  year    = {2008},
+  volume  = {40},
+  number  = {8},
+  pages   = {1--15},
+}
+
+@Article{3,
+  author    = {Ogawa, Takahiro and Haseyama, Miki},
+  title     = {Image inpainting based on sparse representations with a perceptual metric},
+  journal   = {EURASIP Journal on Advances in Signal Processing},
+  year      = {2013},
+  volume    = {2013},
+  number    = {1},
+  pages     = {179},
+  publisher = {Springer},
+}
+
+@Article{4,
+  author    = {Criminisi, Antonio and P{\'e}rez, Patrick and Toyama, Kentaro},
+  title     = {Region filling and object removal by exemplar-based image inpainting},
+  journal   = {IEEE Transactions on image processing},
+  year      = {2004},
+  volume    = {13},
+  number    = {9},
+  pages     = {1200--1212},
+  publisher = {IEEE},
+}
+
+@Article{5,
+  author    = {Goldstein, Tom and Osher, Stanley},
+  title     = {The split Bregman method for L1-regularized problems},
+  journal   = {SIAM journal on imaging sciences},
+  year      = {2009},
+  volume    = {2},
+  number    = {2},
+  pages     = {323--343},
+  publisher = {SIAM},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

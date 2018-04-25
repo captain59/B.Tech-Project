@@ -1,0 +1,6 @@
+\frametitle{Adding Code}
+		\begin{semiverbatim}
+			content
+		\end{semiverbatim}
+	\end{frame}
+\end{document}

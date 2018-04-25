@@ -1,0 +1,140 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+%\usetheme{Bergen}
+%\usetheme{Antibes}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, decorations.pathmorphing}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill = red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill = orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill = green!30]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+\setbeamertemplate{caption}[numbered]
+\title{Cloud Removal in Images}
+\subtitle{BTP Presentation}
+\author{Anirban Mitra \\ 14EE10004}
+\institute{IIT Kharagpur}
+\date{\today}
+
+\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\begin{frame}
+		\frametitle{Outline}
+		\tableofcontents
+	\end{frame}
+	\section{Section 1}
+	\subsection{sub A}
+	\begin{frame}
+		\frametitle{Title 1}
+		section 1 subsection A Title 1
+		\begin{itemize}
+			\item Point A
+			\item Point B
+			% Nested
+			\begin{itemize}
+				\item part 1
+				\item part 2
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Title 2}
+		section 1 subsection A Title 2
+		\begin{enumerate}[I]
+			\item Point A
+			\item Point B
+			% Nested
+			\begin{enumerate}[i]
+				\item part 1
+				\item part 2
+			\end{enumerate}
+		\end{enumerate}
+	\end{frame}
+	\subsection{sub b}
+	\begin{frame}
+		\frametitle{Using Columns}
+		\begin{columns}
+			\column{0.5\textwidth}
+			Testing Out columns
+			\column{0.5\textwidth}
+			\centering
+			\begin{figure}
+				\includegraphics[scale=0.8]{images/kgplogo}
+				\caption{IIT KGP LOGO}
+			\end{figure}
+		\end{columns}
+	\end{frame}
+	\section{Section 2}
+	\begin{frame}
+		\frametitle{Pictures Figures}
+		\begin{figure}
+			\includegraphics[scale=1.2]{images/kgplogo}
+			\caption{IIT KGP LOGO}
+		\end{figure}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Descritption}
+		\begin{description}
+			\item[API] Application Programming Interface
+			\item[LAN] Local Area Network
+			\item[ASCII] American Standard Code for Information Interchange
+		\end{description}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Adding Tables}
+		\begin{table}[h]
+			\begin{tabular}{l | c | c | l}
+				Serial N.o & Name & Age & Sex \\
+				\hline
+				1 & Anirban & 22 & M \\
+				\hline
+				2 & Arunima & 24 & F
+			\end{tabular}
+			\caption{Simple Table}
+			\label{tab:tri}
+		\end{table}
+	\end{frame}
+	\begin{frame}
+		\frametitle {Matrices}
+		Here's a matrix \\
+		\[
+		\begin{bmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6
+		\end{bmatrix}
+		\]
+	\end{frame}
+	\begin{frame}
+		\frametitle{Block}
+		\begin{alertblock}{Alert Block Title}
+			This forms the content of the block
+		\end{alertblock}
+		\begin{block}{Block Title}
+			This forms the content of the block
+		\end{block}
+		\begin{definition}{Definition Block}
+			Content of Block
+		\end{definition}
+		\begin{example}
+			Example Block
+		\end{example}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Adding Code}
+		\begin{semiverbatim}
+			content
+		\end{semiverbatim}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Creating Flowchart}
+		\begin{tikzpicture}[node distance=2cm]
+		\node (start) [startstop] {Start};
+		\node ()
+		\end{tikzpicture}
+	\end{frame}
+\end{document}
