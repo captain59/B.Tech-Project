@@ -15,5 +15,5 @@ A1 = 2*meanX*meanY + C1;
 A2 = 2*covXY + C2;
 B1 = meanX^2 + meanY^2 + C1;
 B2 = varX + varY + C2;
-derivative = 2*(A1*B1*(B2*ref-A2*Y)+B1*B2*(A2-A1)*meanX+A1*A2*(B1-B2)*meanY)/(B1^2*B2^2);
+derivative = -2*(A1*B1*(B2*ref-A2*Y)+B1*B2*(A2-A1)*meanX+A1*A2*(B1-B2)*meanY)/(B1^2*B2^2);
 end

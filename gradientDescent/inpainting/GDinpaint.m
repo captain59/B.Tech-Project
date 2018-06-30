@@ -19,7 +19,7 @@ for iter=1:itteration
     Ydiff = Y1 - Y_est;
     % never use gaussian
     %gradient = 0.5*-2*O_est.*Ydiff + 10*ssimDerivativeGaussian(Y1, Y_est)+lamda*prior;
-    gradient = -1*learningRate*SSIMDerivative(Y1, Y_est) + 0.005*lamda*prior;
+    gradient = learningRate*SSIMDerivative(Y1, Y_est) + 0.005*lamda*prior;
     Xint = Xint - gradient;
     error = sum(sum(Ydiff))/(M*N);
     if error < 0
